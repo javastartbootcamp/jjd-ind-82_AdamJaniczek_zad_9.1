@@ -6,7 +6,7 @@ public class NaCzarno extends FormaOpodatkowania {
     }
 
     @Override
-    public double wyliczPodatek(double przychody) {
+    public double wyliczPodatek(double przychod, double koszt) {
         return 0;
     }
 }

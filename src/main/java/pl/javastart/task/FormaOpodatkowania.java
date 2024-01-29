@@ -3,10 +3,7 @@ package pl.javastart.task;
 public class FormaOpodatkowania {
     private String formaOpodatkowania;
 
-    public FormaOpodatkowania() {
-    }
-
-    public double wyliczPodatek(double przychody) {
+    public double wyliczPodatek(double przychod, double koszt) {
         System.out.println("Metoda z wyliczaniem podatku nie została nadpisana");
         return -1;
     }

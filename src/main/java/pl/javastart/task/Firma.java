@@ -15,18 +15,23 @@ public class Firma {
         this.formaOpodatkowania = formaOpodatkowania;
     }
 
+    public Firma() {
+
+    }
+
     public void wyswietlPodsumowanie() {
-        double sumaPrzychodow = zsumujPrzychody();
+        double przychod = zsumujPrzychody();
+        double koszty = zsumujWydatki();
 
         System.out.printf("======= Firma: %s ===========\n", nazwa);
         System.out.printf("Forma opodatkowania: %s\n", formaOpodatkowania.getFormaOpodatkowania());
-        System.out.printf("Suma przychodów: %.2f zł\n", sumaPrzychodow);
-        System.out.printf("Suma wydatków: %.2f zł\n", zsumujWydatki());
-        System.out.printf("Podatek do zapłacenia: %.2f zł", formaOpodatkowania.wyliczPodatek(sumaPrzychodow));
+        System.out.printf("Suma przychodów: %,.2f zł\n", przychod);
+        System.out.printf("Suma wydatków: %,.2f zł\n", koszty);
+        System.out.printf("Podatek do zapłacenia: %,.2f zł", formaOpodatkowania.wyliczPodatek(przychod, koszty));
         System.out.print("\n\n");
     }
 
-    private double zsumujWydatki() {
+    public double zsumujWydatki() {
         double wydatek = 0;
         for (Koszt element : koszty) {
             wydatek += element.getKoszt();
@@ -34,7 +39,7 @@ public class Firma {
         return wydatek;
     }
 
-    private double zsumujPrzychody() {
+    public double zsumujPrzychody() {
         double przychod = 0;
         for (Przychod element : przychody) {
             przychod += element.getPrzychod();
